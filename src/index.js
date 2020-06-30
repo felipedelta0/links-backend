@@ -1,6 +1,6 @@
 const express = require('express')
 const db = require('./models')
-const response = require('./middlewares/response')
+const response = require('./middlewares/Response')
 
 const AuthController = require('./controllers/Auth')
 
