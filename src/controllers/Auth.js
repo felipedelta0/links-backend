@@ -12,14 +12,14 @@ router.get('/signin', (req, res) => {
 
 router.get('/signup', async (req, res) => {
 
-  const email = 'asadelta@delta.com'
-  const password = '123456'
+  const { email, password } = req.body
+
+  const account = await Account.findOne({ where: { email } })
+  if (account)
+    return res.json('Account already exists')  
 
   const hash = bcrypt.hashSync(password, saltRounds)
-
   const result = await Account.create({ email, password: hash })
-
-  console.log(result)
 
   return res.json(result)
 })
