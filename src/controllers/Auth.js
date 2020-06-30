@@ -10,18 +10,18 @@ router.get('/signin', (req, res) => {
   return res.json('Sign in')
 })
 
-router.get('/signup', async (req, res) => {
+router.post('/signup', async (req, res) => {
 
   const { email, password } = req.body
 
   const account = await Account.findOne({ where: { email } })
   if (account)
-    return res.json('Account already exists')  
+    return res.jsonBadRequest(account, "Account already exists")
 
   const hash = bcrypt.hashSync(password, saltRounds)
-  const result = await Account.create({ email, password: hash })
+  const newAccount = await Account.create({ email, password: hash })
 
-  return res.json(result)
+  return res.jsonOK(newAccount, 'Account created')
 })
 
 module.exports = router
