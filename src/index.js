@@ -3,6 +3,7 @@ const db = require('./models')
 const response = require('./middlewares/Response')
 
 const AuthController = require('./controllers/Auth')
+const LinkController = require('./controllers/Link')
 
 const app = express()
 
@@ -12,6 +13,7 @@ app.use(express.json())
 app.use(express.urlencoded({ extended: false }))
 
 app.use('/auth', AuthController)
+app.use('/link', LinkController)
 
 app.get('/', (req, res) => {
   return res.json('Api running...')
