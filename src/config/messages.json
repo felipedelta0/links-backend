@@ -9,6 +9,7 @@
   "Account.signUp.success": "Cadastro efetuado com sucesso.",
   "Account.signUp.email.string.empty": "E-mail é obrigatório.",
   "Account.signUp.email.string.email": "E-mail não é válido.",
+  "Account.signUp.email.any.required": "E-mail é obrigatório",
   "Account.signUp.password.string.empty": "Senha é obrigatório.",
   "Account.signUp.password.string.pattern.base": "Senha deve conter entre 3 a 30 caracteres sendo apneas letras e números.",
   "Account.signUp.password_confirmation.any.required": "Confirmação de senha é obrigatória.",
